@@ -47,6 +47,7 @@ const ProviderList = () => {
   };
 
   const openCreateProvider = (provider) => {
+    setCurrentProvider(provider);
     handleShowModalCreate();
   };
 
@@ -57,7 +58,7 @@ const ProviderList = () => {
 
   const refreshList = () => {
     getProviders();
-    setCurrentProvider({});
+    setCurrentProvider(new FormData());
 
     handleCloseModalCreate();
     handleCloseModalDelete();
@@ -72,7 +73,7 @@ const ProviderList = () => {
 
   return (
     <div>
-      <div className="input-group mb-3">
+      {/* <div className="input-group mb-3">
         <input
           type="text"
           className="form-control"
@@ -90,12 +91,12 @@ const ProviderList = () => {
         >
           Buscar
         </button>
-      </div>
+      </div> */}
       <div className="d-flex flex-row-reverse mb-2">
         <Button
           variant="primary"
           onClick={() => {
-            openCreateProvider({});
+            openCreateProvider(new FormData());
           }}
         >
           Agregar Proveedor
@@ -150,7 +151,7 @@ const ProviderList = () => {
 
       <ProviderCreateModal
         show={showModalCreate}
-        provider={currentProvider}
+        currentProvider={currentProvider}
         handleClose={handleCloseModalCreate}
         handleCreated={refreshList}
       ></ProviderCreateModal>

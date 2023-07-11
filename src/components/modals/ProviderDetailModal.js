@@ -12,7 +12,11 @@ const ProviderDetailModal = ({ show, provider, handleClose }) => {
       <Modal.Body>
         <Row>
           <Col className="text-center">
-            <img src={provider.image} alt="Imagen Proveedor" width="50%"></img>
+            <img
+              src={"http://localhost:3000" + provider.image}
+              alt="Imagen Proveedor"
+              width="50%"
+            ></img>
           </Col>
         </Row>
         <Row>
