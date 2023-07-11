@@ -8,6 +8,10 @@ const get = (id) => {
   return http.get(`/provider/${id}`);
 };
 
+const getForRuc = (ruc) => {
+  return http.get(`/provider/ruc/${ruc}`);
+};
+
 const create = (data) => {
   return http.post("/provider", data);
 };
@@ -40,6 +44,7 @@ const ProviderService = {
   update,
   remove,
   removeAll,
+  getForRuc,
   // findByRuc,
 };
 

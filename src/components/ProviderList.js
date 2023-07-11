@@ -66,9 +66,13 @@ const ProviderList = () => {
   };
 
   const findByRuc = () => {
-    getProviders();
-    const providersFilter = providers.filter((p) => p.ruc.includes(searchRuc));
-    setProviders(providersFilter);
+    ProviderService.getForRuc(searchRuc)
+      .then((response) => {
+        setProviders(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
